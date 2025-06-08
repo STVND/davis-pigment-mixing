@@ -60,3 +60,30 @@ The primary colors created were made to be saturated and around a 50 HSL value b
 Understand that calculating new S and K values can be pretty time intensive at first and it's recommended to use the availbale functions unless you really need to.
 
 If you are insistent on making new base colors - make sure to take a screenshot of your new color if it still needs adjustments and then drop it into photoshop or something similar, then sample it and make adjustments in RGB and HSL values. Changes to RGB values should inform you on how to change the reflectance in the Excel workbook and the HSL changes should inform you about changes to the S values but that has a very neglible effect since your K is derived from reflectance + S and should only really make a difference due to rounding errors.
+
+### License Things
+
+MIT License
+
+Copyright (c) [year] [fullname]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+(It's also not necessary but if this helped you in your project I'd like to hear about it)
