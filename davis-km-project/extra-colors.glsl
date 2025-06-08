@@ -1,13 +1,7 @@
 #include "davis-km.glsl"
 
-const pigment GREEN = pigment(
-    mix_pigments(mix_pigments(YELLOW, BLUE, .02), BLACK, .01)
-);
+const pigment GREEN = make_pigment(0.0,.085,1.0,.5);
 
-const pigment PURPLE = pigment(
-    mix_pigments(mix_pigments(RED, BLUE, .15), WHITE, .65)
-);
+const pigment PURPLE = make_pigment(1.0,0.065,0.0,.65);
 
-const pigment ORANGE = pigment(
-    mix_pigments(mix_pigments(RED, YELLOW, .45), BLACK, .0015)
-);
+const pigment ORANGE = make_pigment(.5,.0,1.0,.495);
