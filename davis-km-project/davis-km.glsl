@@ -180,6 +180,45 @@ pigment mix_pigments(pigment first_pigment, pigment second_pigment, float mix_fa
     return result_pigment;
 }
 
+
+ 
+pigment make_pigment(float red_amount, float blue_amount, float yellow_amount, float bw_slider_input) {
+    float slider = clamp(bw_slider_input, 0.0, 1.0);
+
+    float r = max(0.0, red_amount);
+    float b = max(0.0, blue_amount);
+    float y = max(0.0, yellow_amount);
+
+    float total_color_prop = r + b + y;
+
+    pigment result_pigment;
+
+    if (total_color_prop <= 1e-6) {
+        result_pigment = mix_pigments(BLACK, WHITE, slider);
+    } else {
+        pigment pure_color_pigment;
+        float norm_r = r / total_color_prop;
+        float norm_b = b / total_color_prop;
+        float norm_y = y / total_color_prop; // This corresponds to the YELLOW pigment
+
+        for (int f = 0; f < SPD_BUCKETS; f++) {
+            pure_color_pigment.k[f] = norm_r * RED.k[f] + norm_b * BLUE.k[f] + norm_y * YELLOW.k[f];
+            pure_color_pigment.s[f] = norm_r * RED.s[f] + norm_b * BLUE.s[f] + norm_y * YELLOW.s[f];
+        }
+
+        if (slider < 0.5) {
+            float mix_with_black_factor = 1.0 - (slider / 0.5); // Factor is 1 at slider=0, 0 at slider=0.5
+            result_pigment = mix_pigments(pure_color_pigment, BLACK, mix_with_black_factor);
+        } else if (slider > 0.5) {
+            float mix_with_white_factor = (slider - 0.5) / 0.5; // Factor is 0 at slider=0.5, 1 at slider=1.0
+            result_pigment = mix_pigments(pure_color_pigment, WHITE, mix_with_white_factor);
+        } else { // slider == 0.5
+            result_pigment = pure_color_pigment;
+        }
+    }
+    return result_pigment;
+}
+
 vec3 pigment_to_srgb(pigment pigment) {
     float R_spectrum[SPD_BUCKETS];
 
