@@ -6,16 +6,15 @@ precision highp float;
 
 #define PI 3.14159
 #define TAU 2 * PI
-#include "davis-km.glsl"
-#include "extra-colors.glsl"
-
+#include "../davis-km.glsl"
+#include "../extra-colors.glsl"
 
 uniform vec2 u_resolution;
 
 out vec4 FragColor;
 
 void main() {
-    vec2 st = gl_FragCoord.xy / u_resolution;
+    vec2 st = gl_FragCoord.xy / u_resolution - .5;
     float pct = pow(1.0 - sin(st.y * PI), 3.0);
     vec3 color = vec3(1.0);
 
