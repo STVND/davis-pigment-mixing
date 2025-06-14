@@ -37,9 +37,9 @@ void main() {
     st = rotate2d( sin(u_time)*PI) * st;
 
     mix_factor += pow(make_pentagon(st * 1.5), 1.0);
-    mix_factor *= 1.2;
+    mix_factor *= 1.1;
     
-    vec3 color = pigment_to_srgb(mix_pigments(RED, WHITE, mix_factor));
+    vec3 color = pigment_to_srgb(mix_pigments(RED, WHITE, mix_factor * mix_factor));
     // vec3 color = vec3(mix_factor);
     // vec3 color = mix(vec3(1.0,0.0,0.0), vec3(1.0,1.0,1.0), mix_factor);
     
