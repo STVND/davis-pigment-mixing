@@ -14,7 +14,7 @@ uniform vec2 u_resolution;
 out vec4 FragColor;
 
 void main() {
-    vec2 st = gl_FragCoord.xy / u_resolution - .5;
+    vec2 st = gl_FragCoord.xy / u_resolution;
     float pct = pow(1.0 - sin(st.y * PI), 3.0);
     vec3 color = vec3(1.0);
 

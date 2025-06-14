@@ -34,7 +34,7 @@ mat2 rotate2d(float _angle) {
 void main() {
     vec2 st = (gl_FragCoord.xy / u_resolution) * 4.0 - 2.0;
     float mix_factor = distance(st, vec2(0.0));
-    st = rotate2d( sin(u_time)*PI) * st;
+    // st = rotate2d( sin(u_time)*PI) * st;
 
     mix_factor += pow(make_pentagon(st * 1.5), 1.0);
     mix_factor *= 1.1;
